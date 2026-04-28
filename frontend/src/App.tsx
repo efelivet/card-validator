@@ -46,20 +46,34 @@ const App: React.FC = () => {
     setLoading(true);
 
             // Mock API Call 
-    try {
-      
-     
-    //  call the fetch function to the API const response = await fetch('',{})
-
-
-      // For now, we use a dummy ready state until backend is linked
-      setResult({
-        valid: true,
-        message: 'Input sanitized and ready for Backend validation.'
+   try {
+      // 3. Real API Call to your local backend
+      const response = await fetch('http://localhost:5000/api/validate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cardNumber: cleanNumber }),
       });
+
+      // 4. Parse the response
+      const data: ValidationResult = await response.json();
+
+      if (response.ok) {
+        setResult(data);
+      } else {
+        setResult({
+          valid: false,
+          message: data.message || 'Server rejected the request.'
+        });
+      }
     } catch (error) {
-      setResult({ valid: false, message: 'An unexpected error occurred.' });
-    } finally {
+      // Handles network errors (e.g., backend is not running)
+      setResult({ 
+        valid: false, 
+        message: 'Cannot connect to server. Ensure backend is running.' 
+      });
+    }finally {
       setLoading(false);
     }
   };
