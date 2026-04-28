@@ -47,7 +47,7 @@ const App: React.FC = () => {
 
             // Mock API Call 
    try {
-      // 3. Real API Call to your local backend
+      
       const response = await fetch('http://localhost:5000/api/validate', {
         method: 'POST',
         headers: {
@@ -56,7 +56,7 @@ const App: React.FC = () => {
         body: JSON.stringify({ cardNumber: cleanNumber }),
       });
 
-      // 4. Parse the response
+      
       const data: ValidationResult = await response.json();
 
       if (response.ok) {
@@ -68,10 +68,10 @@ const App: React.FC = () => {
         });
       }
     } catch (error) {
-      // Handles network errors (e.g., backend is not running)
+    
       setResult({ 
         valid: false, 
-        message: 'Cannot connect to server. Ensure backend is running.' 
+        message: 'Cannot connect to server.' 
       });
     }finally {
       setLoading(false);
