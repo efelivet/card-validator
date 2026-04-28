@@ -1,0 +1,15 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Environment / Secrets
+.env
+.env.local
+
+# Top-level node_modules (if you accidentally ran npm install in root)
+node_modules/
