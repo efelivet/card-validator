@@ -10,7 +10,7 @@ const frontendUrl = 'https://card-validator-client.onrender.com';
 // Middleware
 app.use(cors({
   origin: frontendUrl, 
-  methods: ['POST'], // We only need POST for this app
+  methods: ['POST'], 
   credentials: true
 }));
 app.use(express.json());

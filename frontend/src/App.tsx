@@ -48,7 +48,7 @@ const App: React.FC = () => {
             // Mock API Call 
    try {
       
-      const response = await fetch('https://card-validator-zhti.onrender.com', {
+      const response = await fetch('https://card-validator-zhti.onrender.com/api/validate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
