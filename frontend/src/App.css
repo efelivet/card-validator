@@ -1,4 +1,3 @@
-/* Container centers everything vertically and horizontally */
 .container {
   height: 100vh;
   display: flex;
@@ -10,10 +9,9 @@
   box-sizing: border-box;
 }
 
-/* The white card box */
 .card-box {
   background-color: #ffffff;
-  padding: clamp(20px, 5vw, 40px);
+  padding: clamp(24px, 5vw, 40px);
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   width: 100%;
@@ -23,39 +21,41 @@
 }
 
 .title {
-  margin: 0 0 10px 0;
-  font-size: clamp(20px, 6vw, 24px);
+  margin: 0 0 8px 0;
+  font-size: clamp(22px, 6vw, 28px);
   color: #1a202c;
+  font-weight: 700;
 }
 
 .subtitle {
-  margin: 0 0 25px 0;
+  margin: 0 0 24px 0;
   font-size: 14px;
   color: #718096;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .validation-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 .card-input {
   width: 100%;
-  padding: 12px 10px;
+  padding: 14px;
   border-radius: 8px;
   border: 2px solid #e2e8f0;
-  font-size: clamp(16px, 5vw, 20px);
-  letter-spacing: 2px;
+  font-size: clamp(18px, 5vw, 22px);
+  letter-spacing: 3px;
   text-align: center;
   outline: none;
   box-sizing: border-box;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .card-input:focus {
   border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
 }
 
 .submit-button {
@@ -65,9 +65,9 @@
   border-radius: 8px;
   border: none;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s, opacity 0.2s;
+  transition: background-color 0.2s;
 }
 
 .submit-button:hover:not(:disabled) {
@@ -75,27 +75,32 @@
 }
 
 .submit-button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* Result Box Styles */
 .result-message {
   margin-top: 20px;
-  padding: 12px;
+  padding: 14px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
+  animation: fadeIn 0.3s ease-in;
 }
 
 .result-success {
   background-color: #e6fffa;
-  color: #2c7a7b;
-  border: 1px solid #81e6d9;
+  color: #234e52;
+  border: 1px solid #b2f5ea;
 }
 
 .result-error {
   background-color: #fff5f5;
-  color: #c53030;
-  border: 1px solid #feb2b2;
+  color: #742a2a;
+  border: 1px solid #fed7d7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
