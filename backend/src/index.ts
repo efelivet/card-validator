@@ -6,9 +6,13 @@ import { validateLuhn } from './utils/luhnValidator';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+const frontendUrl = 'https://card-validator-client.onrender.com';
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: frontendUrl, 
+  methods: ['POST'], // We only need POST for this app
+  credentials: true
+}));
 app.use(express.json());
 
 
